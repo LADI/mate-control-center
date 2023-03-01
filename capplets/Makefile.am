@@ -8,7 +8,6 @@ SUBDIRS = \
 	keybindings \
 	mouse \
 	network \
-	time-admin \
 	windows \
 	about-me
 
@@ -21,9 +20,13 @@ DIST_SUBDIRS = \
 	keyboard \
 	mouse \
 	network \
-	time-admin \
 	windows \
 	display \
 	about-me
+
+if HAVE_POLKIT
+SUBDIRS += time-admin
+DIST_SUBDIRS += time-admin
+endif
 
 -include $(top_srcdir)/git.mk
